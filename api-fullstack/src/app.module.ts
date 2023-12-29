@@ -5,6 +5,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductsModule } from './products/products.module';
 import { Product } from './products/entities/product.entity';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
+import { User } from './users/entities/user.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
     imports: [
@@ -18,7 +21,7 @@ import { ConfigModule } from '@nestjs/config';
         username: process.env.POSTGRES_USERNAME,
         password: process.env.POSTGRES_PASSWORD,
         database: process.env.POSTGRES_DATABASE,
-        entities: [Product],
+        entities: [Product, User],
         synchronize: true,
         ssl: process.env.POSTGRES_SSL === 'true',
         extra: {
@@ -31,8 +34,10 @@ import { ConfigModule } from '@nestjs/config';
         },
       }),
       ProductsModule,
+      UsersModule,
+      AuthModule,
     ],
-  controllers: [AppController],
-  providers: [AppService],
-})
+    controllers: [AppController],
+    providers: [AppService],
+  })
 export class AppModule {}
