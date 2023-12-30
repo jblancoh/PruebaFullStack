@@ -36,7 +36,7 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">
           <li>
             <details>
-              <summary>Graficos</summary>
+              <summary>Charts</summary>
               <ul className="p-2">
                 <li><a>Retail Trade USA</a></li>
               </ul>
@@ -46,15 +46,15 @@ const NavBar = () => {
           user?.role === 'admin' &&
             <li>
               <details>
-                <summary>Usuarios</summary>
+                <summary>Users</summary>
                 <ul className="p-2">
-                  <li><a>Lista</a></li>
-                  <li><a>Registrar</a></li>
+                  <li><a>List</a></li>
+                  <li><a>Register</a></li>
                 </ul>
               </details>
             </li>
           }
-          <li><a>Mapa</a></li>
+          <li><a>Map</a></li>
         </ul>
       </div>
       <div className="navbar-end">

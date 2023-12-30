@@ -14,8 +14,13 @@ Este proyecto es una prueba para el cargo de desarrollador Full Stack en la empr
 
 ## Instalación
 
-Para instalar el proyecto se debe clonar el repositorio y ejecutar el siguiente comando:
+Leer los archivos README.md de cada carpeta para la instalación de cada parte del proyecto.
+
 
 ### Backend
 
+[API](./api-fullstack/README.md)
+
 ### Frontend
+
+[Frontend](./frontend/README.md)
