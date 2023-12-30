@@ -1,12 +1,6 @@
 import { NextResponse } from "next/server"
 
 export async function GET(request) {
-  // obtener los parametros de la url
-  // con estos parametros se puede hacer una consulta a la base de datos
-  // tmb se va a poder paginar
-  // tmb se va a poder ordenar
-  // tmb se va a poder filtrar
-  // tmb se va a poder buscar
   const { searchParams } = new URL(request.url)
   const page = searchParams.get('page')
   const limit = searchParams.get('limit')

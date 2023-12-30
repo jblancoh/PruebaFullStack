@@ -57,7 +57,7 @@ const DashboardProduct = () => {
               if (index + 1 >= startRange && index + 1 <= endRange) {
                 return (
                   <button
-                    key={index}
+                    key={`page-${index}`}
                     className={`join-item btn ${meta?.currentPage === index + 1 ? 'btn-active' : ''}`}
                     onClick={() => {
                       setMeta(
@@ -73,7 +73,7 @@ const DashboardProduct = () => {
                 );
               } else if (index + 1 === startRange - 1 || index + 1 === endRange + 1) {
                 return (
-                  <button className="join-item btn btn-disabled">...</button>
+                  <button className="join-item btn btn-disabled" key={`page-${index}`}>...</button>
                 );
               } else {
                 return null;

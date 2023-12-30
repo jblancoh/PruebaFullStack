@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server"
+import { cookies } from "next/headers";
 
 export async function POST (req) {
   const res = await req.json();
+  const cookieStore = cookies();
+
   const { email, password } = res;
   const user = {
     email,
@@ -23,12 +26,12 @@ export async function POST (req) {
     // set cookie token
     let responseNext = NextResponse.next()
     const { token, ...dataRest } = data
-    responseNext.cookies.set("token", token, {
-      httpOnly: true,
-      maxAge: 60 * 5, // 60 * 60 * 24 * 7, 5 minutes
-      path: "/",
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production"
+    
+    cookieStore.set('Token', token, {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 30,
+      sameSite: 'lax',
+      secure: process.env.NODE_ENV === 'production',
     })
     
     return NextResponse.json({ data: dataRest }, { status: dataRest.statusCode });

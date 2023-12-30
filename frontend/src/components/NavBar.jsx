@@ -26,14 +26,39 @@ const NavBar = () => {
   , [user])
   
   return (
-    <div className="navbar">
-      <div className="flex-1">
+    <div className="navbar border mb-4 rounded-lg shadow-lg">
+      <div className="navbar-start">
         <Link href="/home">
           <button className="btn btn-ghost text-xl">FullStack Dashboard</button>
         </Link>
       </div>
-      <div className="flex-none">
-        {
+      <div className="navbar-center">
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <details>
+              <summary>Graficos</summary>
+              <ul className="p-2">
+                <li><a>Retail Trade USA</a></li>
+              </ul>
+            </details>
+          </li>
+         {
+          user?.role === 'admin' &&
+            <li>
+              <details>
+                <summary>Usuarios</summary>
+                <ul className="p-2">
+                  <li><a>Lista</a></li>
+                  <li><a>Registrar</a></li>
+                </ul>
+              </details>
+            </li>
+          }
+          <li><a>Mapa</a></li>
+        </ul>
+      </div>
+      <div className="navbar-end">
+        {/* {
           isLogged && (
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -53,7 +78,7 @@ const NavBar = () => {
               </div>
             </div>
           )
-        }
+        } */}
         {
           isLogged ? (
             <div className="dropdown dropdown-end">

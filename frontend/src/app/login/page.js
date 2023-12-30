@@ -5,7 +5,6 @@ import Toast from "@/components/Toast";
 const Page = () => {
   return (
     <div className="container">
-      <NavBar />
       <div className="hero min-h-screen">
         <div className="border rounded-lg shadow-lg ">
         <div className="text-center hero-content flex-col">
