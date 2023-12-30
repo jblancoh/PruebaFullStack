@@ -4,6 +4,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
+import { FilterOperator, FilterSuffix, Paginate, PaginateQuery, paginate, Paginated } from 'nestjs-paginate'
 
 @Injectable()
 export class ProductsService {
@@ -16,9 +17,35 @@ export class ProductsService {
     return this.productsRepository.save(createProductDto);
   }
   
-  findAll() {
-    return this.productsRepository.find();
-  }
+  findAll(query: PaginateQuery): Promise<Paginated<Product>> {
+    return paginate(query, this.productsRepository, {
+      sortableColumns: [
+        'ProductID',
+        'Name',
+        'ProductNumber',
+        'Color',
+        'StandardCost',
+        'ListPrice',
+        'Size',
+        'Weight',
+        'ProductLine',
+        'ModifiedDate'
+      ],
+      nullSort: 'last',
+      defaultSortBy: [['ProductID', 'ASC']],
+      searchableColumns: ['ProductID', 'Name', 'ProductNumber', 'Color', 'Size', 'ProductLine', 'ModifiedDate'],
+      select: ['ProductID', 'Name', 'ProductNumber', 'Color', 'Size', 'ProductLine', 'ModifiedDate'],
+      filterableColumns: {
+        ProductID: [FilterOperator.EQ, FilterSuffix.NOT],
+        Name: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+        ProductNumber: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+        Color: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+        Size: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+        ProductLine: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+        ModifiedDate: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+      }
+    })
+}
 
   findOne(ProductID: number) {
     const options = { where: { ProductID } };
