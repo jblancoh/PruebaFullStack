@@ -33,7 +33,7 @@ export class ProductsService {
       ],
       nullSort: 'last',
       defaultSortBy: [['ProductID', 'ASC']],
-      searchableColumns: ['ProductID', 'Name', 'ProductNumber', 'Color', 'Size', 'ProductLine'],
+      searchableColumns: ['ProductID', 'Name', 'ProductNumber', 'Color', 'Size', 'ProductLine', 'ModifiedDate'],
       select: ['ProductID', 'Name', 'ProductNumber', 'Color', 'Size', 'ProductLine', 'ModifiedDate'],
       filterableColumns: {
         ProductID: [FilterOperator.EQ, FilterSuffix.NOT],
