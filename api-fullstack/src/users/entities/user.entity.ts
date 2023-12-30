@@ -20,9 +20,9 @@ export class User {
     @Column()
     createdAt: Date;
     
-    @Column()
+    @Column({ nullable: true })
     updatedAt: Date;
     
-    @DeleteDateColumn()
+    @DeleteDateColumn({ nullable: true })
     deletedAt: Date;
 }

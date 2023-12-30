@@ -13,10 +13,5 @@ export class RegisterUserDto {
   @IsString()
   @MinLength(8)
   password: string;
-  
-  @IsDate()
-  createdAt: Date;
-  
-  @IsString()
-  role: string;
+
 }
