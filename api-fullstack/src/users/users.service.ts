@@ -14,7 +14,7 @@ export class UsersService {
   ) {}
   
   create(createUserDto: CreateUserDto) {
-    createUserDto.role = 'user'
+    createUserDto.roles = ['user']
     createUserDto.createdAt = new Date()
     return this.userRepository.save(createUserDto);
   }

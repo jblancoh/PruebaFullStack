@@ -2,7 +2,7 @@ export class CreateUserDto {
   email: string;
   password: string;
   name?: string;
-  role?: string;
+  roles?: string[];
   createdAt?: Date;
   updatedAt?: Date;
   deletedAt?: Date;

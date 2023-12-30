@@ -37,6 +37,22 @@ export class AuthService {
     const password = await bcryptjs.hash(registerUserDto.password, 10)
     registerUserDto.password = password
     
-    return await this.usersService.create(registerUserDto)
+    await this.usersService.create(registerUserDto)
+    return { message: 'User created' }
+    
+  }
+  
+  async profile({ email, role }: { email: string, role: string }) {
+    const user = await this.usersService.findOneByEmail(email)
+    if (!user) {
+      throw new BadRequestException('User not found')
+    }
+    
+    return {
+      email: user.email,
+      role: user.role,
+      name: user.name,
+      id: user.id,
+    }
   }
 }

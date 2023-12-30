@@ -4,9 +4,15 @@ import { RegisterUserDto } from './dto/register-user.dto';
 import { LoginDto } from './dto/login.dto';
 import { AuthGuard } from './guard/auth.guard';
 import { Request as Req } from 'express';
+import { Roles } from './decorators/roles.decorator';
+import { RolesGuard } from './guard/roles.guard';
+import { Role } from './enums/role.enum';
 
 interface RequestWithUser extends Req {
-  user: any;
+  user: {
+    email: string,
+    role: string,
+  }
 }
 
 @Controller('auth')
@@ -32,11 +38,15 @@ export class AuthController {
   }
   
   @Get('profile')
-  @UseGuards(AuthGuard)
+  @Roles([Role.Admin, Role.User])
+  @UseGuards(AuthGuard, RolesGuard)
   profile(
     @Request()
     request: RequestWithUser
   ) {
-    return request.user
+    return this.authService.profile({
+      email: request.user.email,
+      role: request.user.role,
+    })
   }
 }
