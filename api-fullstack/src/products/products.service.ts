@@ -20,43 +20,43 @@ export class ProductsService {
   findAll(query: PaginateQuery): Promise<Paginated<Product>> {
     return paginate(query, this.productsRepository, {
       sortableColumns: [
-        'ProductID',
-        'Name',
-        'ProductNumber',
-        'Color',
-        'StandardCost',
-        'ListPrice',
-        'Size',
-        'Weight',
-        'ProductLine',
-        'ModifiedDate'
+        'productID',
+        'name',
+        'productNumber',
+        'color',
+        'standardCost',
+        'listPrice',
+        'size',
+        'weight',
+        'productLine',
+        'modifiedDate'
       ],
       nullSort: 'last',
-      defaultSortBy: [['ProductID', 'ASC']],
-      searchableColumns: ['ProductID', 'Name', 'ProductNumber', 'Color', 'Size', 'ProductLine', 'ModifiedDate'],
-      select: ['ProductID', 'Name', 'ProductNumber', 'Color', 'Size', 'ProductLine', 'ModifiedDate'],
+      defaultSortBy: [['productID', 'ASC']],
+      searchableColumns: ['productID', 'name', 'productNumber', 'color', 'size', 'productLine', 'modifiedDate'],
+      select: ['productID', 'name', 'productNumber', 'color', 'size', 'productLine', 'modifiedDate'],
       filterableColumns: {
-        ProductID: [FilterOperator.EQ, FilterSuffix.NOT],
-        Name: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
-        ProductNumber: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
-        Color: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
-        Size: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
-        ProductLine: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
-        ModifiedDate: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+        productID: [FilterOperator.EQ, FilterSuffix.NOT],
+        name: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+        productNumber: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+        color: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+        size: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+        productLine: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
+        modifiedDate: [FilterOperator.CONTAINS, FilterOperator.EQ, FilterSuffix.NOT],
       }
     })
 }
 
-  findOne(ProductID: number) {
-    const options = { where: { ProductID } };
+  findOne(productID: number) {
+    const options = { where: { productID } };
     return this.productsRepository.findOne(options);
   }
   
-  update(ProductID: number, updateProductDto: UpdateProductDto) {
-    return this.productsRepository.update(ProductID, updateProductDto);
+  update(productID: number, updateProductDto: UpdateProductDto) {
+    return this.productsRepository.update(productID, updateProductDto);
   }
 
-  remove(ProductID: number) {
-    return this.productsRepository.delete(ProductID);
+  remove(productID: number) {
+    return this.productsRepository.delete(productID);
   }
 }

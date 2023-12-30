@@ -29,16 +29,16 @@ const Table = ({ data }) => {
             data.map((item, index) => {
               return (
                 <tr key={index} onClick={onClickRow} className="cursor-pointer">
-                  <th>{item.ProductID}</th>
-                  <td>{item.Name}</td>
-                  <td>{item.ProductNumber}</td>
-                  <td>{item.Color}</td>
-                  <td>{item.StandardCost}</td>
-                  <td>{item.ListPrice}</td>
-                  <td>{item.Size}</td>
-                  <td>{item.Weight}</td>
-                  <td>{item.ProductLine}</td>
-                  <td>{item.ModifiedDate}</td>
+                  <th>{item.productID}</th>
+                  <td>{item.name}</td>
+                  <td>{item.productNumber}</td>
+                  <td>{item.color}</td>
+                  <td>{item.standardCost}</td>
+                  <td>{item.listPrice}</td>
+                  <td>{item.size}</td>
+                  <td>{item.weight}</td>
+                  <td>{item.productLine}</td>
+                  <td>{item.modifiedDate}</td>
                 </tr>
               )
             })
