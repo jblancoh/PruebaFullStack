@@ -24,9 +24,8 @@ import { EmploymentByLocation } from './employment-by-location/entities/employme
         password: process.env.POSTGRES_PASSWORD,
         database: process.env.POSTGRES_DATABASE,
         entities: ['dist/**/*.entity{.ts,.js}'],
-        synchronize: process.env.NODE_ENV !== 'production',
+        synchronize: true,
         ssl: process.env.POSTGRES_SSL === 'true',
-        migrations: ['dist/migrations/*.js'],
         extra: {
           ssl: 
             process.env.POSTGRES_SSL === 'true'
