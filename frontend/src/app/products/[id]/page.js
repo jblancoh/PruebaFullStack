@@ -25,25 +25,81 @@ export default function Page({ params }) {
       <div className="grid grid-cols-3 p-10">
         <div className="col-span-1">
           <label className="font-bold">Nombre</label>
-          <p>{data?.Name}</p>
+          {
+            data.Name ? (
+              <p>{data.Name}</p>
+            )
+            : (
+              <div className="skeleton h-4 w-40 mb-1"></div>
+            )
+          }
           <label className="font-bold">Número de producto</label>
-          <p>{data?.ProductNumber}</p>
+          {
+            data.ProductNumber ? (
+              <p>{data.ProductNumber}</p>
+            )
+            : (
+              <div className="skeleton h-4 w-40 mb-1"></div>
+            )
+          }
         </div>
         <div className="col-span-1">
           <label className="font-bold">Color</label>
-          <p>{data?.Color || "N/D"}</p>
+          {
+            data.Color || data.Color === '' ? (
+              <p>{data.Color || "N/D"}</p>
+            )
+            : (
+              <div className="skeleton h-4 w-40 mb-1"></div>
+            )
+          }
           <label className="font-bold">Nivel de seguridad</label>
-          <p>{data?.SafetyStockLevel}</p>
+          {
+            data.SafetyStockLevel ? (
+              <p>{data.SafetyStockLevel}</p>
+            )
+            : (
+              <div className="skeleton h-4 w-40 mb-1"></div>
+            )
+          }
         </div>
         <div className="col-span-1">
           <label className="font-bold">Precio de lista</label>
-          <p>{data?.ListPrice}</p>
+          {
+            data.ListPrice  || data.ListPrice === 0 ? (
+              <p>{data.ListPrice}</p>
+            )
+            : (
+              <div className="skeleton h-4 w-40 mb-1"></div>
+            )
+          }
           <label className="font-bold">Costo estándar</label>
-          <p>{data?.StandardCost}</p>
+          {
+            data.StandardCost || data.StandardCost === 0 ? (
+              <p>{data.StandardCost}</p>
+            )
+            : (
+              <div className="skeleton h-4 w-40 mb-1"></div>
+            )
+          }
           <label className="font-bold">Peso</label>
-          <p>{data?.Weight || 0}</p>
+          {
+            data.Weight || data.Weight === null ? (
+              <p>{data.Weight || 0}</p>
+            )
+            : (
+              <div className="skeleton h-4 w-40 mb-1"></div>
+            )
+          }
           <label className="font-bold">Fecha de modificación</label>
-          <p>{data?.ModifiedDate}</p>
+          {
+            data.ModifiedDate ? (
+              <p>{data.ModifiedDate}</p>
+            )
+            : (
+              <div className="skeleton h-4 w-40 mb-1"></div>
+            )
+          }
         </div>
       </div>
     </div>
