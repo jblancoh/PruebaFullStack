@@ -17,8 +17,26 @@ export class ProductsService {
   }
   
   findAll() {
-    return this.productsRepository.find();
-  }
+
+    return this.productsRepository.find({ select: [
+      'ProductID',
+      'Name',
+      'ProductNumber',
+      'Color',
+      'StandardCost',
+      'ListPrice',
+      'Size',
+      'Weight',
+      'ProductLine',
+      'ModifiedDate'
+    ],
+    order: {
+      ProductID: "ASC"
+    },
+    take: 10,
+    skip: 0
+  });
+}
 
   findOne(ProductID: number) {
     const options = { where: { ProductID } };

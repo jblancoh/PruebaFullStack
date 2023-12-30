@@ -5,34 +5,37 @@ const Table = ({ data }) => {
       <table className="table table-zebra">
         <thead>
           <tr>
-            <th></th>
+            <th>ProductID</th>
             <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
+            <th>ProductNumber</th>
+            <th>Color</th>
+            <th>StandardCost</th>
+            <th>ListPrice</th>
+            <th>Size</th>
+            <th>Weight</th>
+            <th>ProductLine</th>
+            <th>ModifiedDate</th>
           </tr>
         </thead>
         <tbody>
-          {/* row 1 */}
-          <tr>
-            <th>1</th>
-            <td>Cy Ganderton</td>
-            <td>Quality Control Specialist</td>
-            <td>Blue</td>
-          </tr>
-          {/* row 2 */}
-          <tr>
-            <th>2</th>
-            <td>Hart Hagerty</td>
-            <td>Desktop Support Technician</td>
-            <td>Purple</td>
-          </tr>
-          {/* row 3 */}
-          <tr>
-            <th>3</th>
-            <td>Brice Swyre</td>
-            <td>Tax Accountant</td>
-            <td>Red</td>
-          </tr>
+          {
+            data.map((item, index) => {
+              return (
+                <tr key={index}>
+                  <th>{item.ProductID}</th>
+                  <td>{item.Name}</td>
+                  <td>{item.ProductNumber}</td>
+                  <td>{item.Color}</td>
+                  <td>{item.StandardCost}</td>
+                  <td>{item.ListPrice}</td>
+                  <td>{item.Size}</td>
+                  <td>{item.Weight}</td>
+                  <td>{item.ProductLine}</td>
+                  <td>{item.ModifiedDate}</td>
+                </tr>
+              )
+            })
+          }
         </tbody>
       </table>
     </div>
