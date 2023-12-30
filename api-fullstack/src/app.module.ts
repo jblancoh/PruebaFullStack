@@ -8,6 +8,8 @@ import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
+import { EmploymentByLocationModule } from './employment-by-location/employment-by-location.module';
+import { EmploymentByLocation } from './employment-by-location/entities/employment-by-location.entity';
 
 @Module({
     imports: [
@@ -21,7 +23,7 @@ import { AuthModule } from './auth/auth.module';
         username: process.env.POSTGRES_USERNAME,
         password: process.env.POSTGRES_PASSWORD,
         database: process.env.POSTGRES_DATABASE,
-        entities: [Product, User],
+        entities: [Product, User, EmploymentByLocation],
         synchronize: true,
         ssl: process.env.POSTGRES_SSL === 'true',
         extra: {
@@ -36,6 +38,7 @@ import { AuthModule } from './auth/auth.module';
       ProductsModule,
       UsersModule,
       AuthModule,
+      EmploymentByLocationModule,
     ],
     controllers: [AppController],
     providers: [AppService],
