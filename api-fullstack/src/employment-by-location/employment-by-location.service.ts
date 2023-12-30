@@ -11,8 +11,12 @@ export class EmploymentByLocationService {
     private employmentByLocationRepository: Repository<EmploymentByLocation>,
   ) {}
 
-  findAll() {
-    return this.employmentByLocationRepository.find();
+  findAll(
+    top: string,
+    year: number,
+  ) {
+    const options = { order: { totalPopulation: "DESC" as "DESC" }, where: { year }, take: parseInt(top)};
+    return this.employmentByLocationRepository.find(options)
   }
 
   findOne(id: number) {

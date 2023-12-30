@@ -21,22 +21,22 @@ export default function Page({ params }) {
   
   return (
     <div className="border rounded-lg shadow-lg">
-      <h2 className="text-center text-2xl font-bold p-5">Detalles de producto</h2>
+      <h2 className="text-center text-2xl font-bold p-5">Product Details</h2>
       <div className="grid grid-cols-3 p-10">
         <div className="col-span-1">
-          <label className="font-bold">Nombre</label>
+          <label className="font-bold">Name</label>
           {
-            data.Name ? (
-              <p>{data.Name}</p>
+            data.name ? (
+              <p>{data.name}</p>
             )
             : (
               <div className="skeleton h-4 w-40 mb-1"></div>
             )
           }
-          <label className="font-bold">Número de producto</label>
+          <label className="font-bold">Prodcut Number</label>
           {
-            data.ProductNumber ? (
-              <p>{data.ProductNumber}</p>
+            data.productNumber ? (
+              <p>{data.productNumber}</p>
             )
             : (
               <div className="skeleton h-4 w-40 mb-1"></div>
@@ -46,17 +46,17 @@ export default function Page({ params }) {
         <div className="col-span-1">
           <label className="font-bold">Color</label>
           {
-            data.Color || data.Color === '' ? (
-              <p>{data.Color || "N/D"}</p>
+            data.color || data.color === '' ? (
+              <p>{data.color || "N/D"}</p>
             )
             : (
               <div className="skeleton h-4 w-40 mb-1"></div>
             )
           }
-          <label className="font-bold">Nivel de seguridad</label>
+          <label className="font-bold">Safety Stock Level</label>
           {
-            data.SafetyStockLevel ? (
-              <p>{data.SafetyStockLevel}</p>
+            data.safetyStockLevel ? (
+              <p>{data.safetyStockLevel}</p>
             )
             : (
               <div className="skeleton h-4 w-40 mb-1"></div>
@@ -64,37 +64,37 @@ export default function Page({ params }) {
           }
         </div>
         <div className="col-span-1">
-          <label className="font-bold">Precio de lista</label>
+          <label className="font-bold">List Price</label>
           {
-            data.ListPrice  || data.ListPrice === 0 ? (
-              <p>{data.ListPrice}</p>
+            data.listPrice  || data.listPrice === 0 ? (
+              <p>{data.listPrice}</p>
             )
             : (
               <div className="skeleton h-4 w-40 mb-1"></div>
             )
           }
-          <label className="font-bold">Costo estándar</label>
+          <label className="font-bold">Standard Cost</label>
           {
-            data.StandardCost || data.StandardCost === 0 ? (
-              <p>{data.StandardCost}</p>
+            data.standardCost || data.standardCost === 0 ? (
+              <p>{data.standardCost}</p>
             )
             : (
               <div className="skeleton h-4 w-40 mb-1"></div>
             )
           }
-          <label className="font-bold">Peso</label>
+          <label className="font-bold">Weight</label>
           {
-            data.Weight || data.Weight === null ? (
-              <p>{data.Weight || 0}</p>
+            data.weight || data.weight === null ? (
+              <p>{data.weight || 0}</p>
             )
             : (
               <div className="skeleton h-4 w-40 mb-1"></div>
             )
           }
-          <label className="font-bold">Fecha de modificación</label>
+          <label className="font-bold">ModifiedDate</label>
           {
-            data.ModifiedDate ? (
-              <p>{data.ModifiedDate}</p>
+            data.modifiedDate ? (
+              <p>{data.modifiedDate}</p>
             )
             : (
               <div className="skeleton h-4 w-40 mb-1"></div>

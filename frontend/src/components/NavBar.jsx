@@ -38,7 +38,13 @@ const NavBar = () => {
             <details>
               <summary>Charts</summary>
               <ul className="p-2">
-                <li><a>Retail Trade USA</a></li>
+                <li>
+                  <Link
+                    href="/trade/usa"
+                  >
+                    Retail Trade USA
+                  </Link>
+                </li>
               </ul>
             </details>
           </li>
