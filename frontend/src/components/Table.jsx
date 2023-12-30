@@ -1,5 +1,12 @@
+import { useRouter } from "next/navigation"
 
 const Table = ({ data }) => {
+  const router = useRouter()
+  const onClickRow = (e) => {
+    const firstChild = e.target.parentNode.firstChild
+    const text = firstChild.textContent
+    router.push(`/products/${text}`)
+  }
   return (
     <div className="overflow-x-auto">
       <table className="table table-zebra">
@@ -21,7 +28,7 @@ const Table = ({ data }) => {
           {
             data.map((item, index) => {
               return (
-                <tr key={index}>
+                <tr key={index} onClick={onClickRow} className="cursor-pointer">
                   <th>{item.ProductID}</th>
                   <td>{item.Name}</td>
                   <td>{item.ProductNumber}</td>
