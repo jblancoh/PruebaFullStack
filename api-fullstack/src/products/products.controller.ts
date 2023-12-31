@@ -4,7 +4,10 @@ import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Paginate, PaginateQuery, Paginated } from 'nestjs-paginate'
 import { Product } from './entities/product.entity';
+import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Role } from 'src/auth/enums/role.enum';
 
+@Auth([Role.Admin, Role.User])
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}

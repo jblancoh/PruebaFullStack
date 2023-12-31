@@ -11,7 +11,7 @@ export class States {
   @Column()
   state: string;
   
-  @Column()
+  @Column({ select: false })
   cveDistrict: number;
   
   @Column()

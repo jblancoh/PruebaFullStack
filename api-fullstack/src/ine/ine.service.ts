@@ -17,7 +17,8 @@ export class IneService {
   ) {}
 
   findAll() {
-    return this.ineRepository.find();
+    const options = { relations: ["state", "district"] };
+    return this.ineRepository.find(options);
   }
 
   findOne(state: number) {
