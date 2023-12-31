@@ -67,10 +67,8 @@ Este proyecto esta configurado para desplegarse en [Vercel](https://vercel.com/)
 
 - Home
 - Charts
-- Map
+- INEGI
 - Login
-- Register
-
 
 ## Componentes
 

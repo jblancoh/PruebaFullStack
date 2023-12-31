@@ -60,7 +60,13 @@ const NavBar = () => {
               </details>
             </li>
           }
-          <li><a>Map</a></li>
+          <li>
+            <Link
+              href="/inegi"
+            >
+              INEGI
+            </Link>
+          </li>
         </ul>
       </div>
       <div className="navbar-end">
