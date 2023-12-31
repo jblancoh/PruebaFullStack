@@ -3,6 +3,8 @@ import { useEffect, useState, useCallback } from "react"
 import { alertStore } from "../store/alertStore"
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { userStore } from "../store/userStore";
+import NoAuth from "@/components/NoAuth";
 
 const POSITION_CLASSES = {
   bottomleft: 'leaflet-bottom leaflet-left',
@@ -12,7 +14,6 @@ const POSITION_CLASSES = {
 }
 
 const SelectDistrict = ({ position, zoom, data, coords }) => {
-  console.log("🚀 ~ file: page.js:15 ~ SelectDistrict ~ data:", data)
   const parentMap = useMap();
   const positionClass =
     (position && POSITION_CLASSES[position]) || POSITION_CLASSES.topright;
@@ -64,6 +65,16 @@ const Page  = () => {
   const [data, setData] = useState([])
   const [position, setPosition] = useState(null)
   const {setError } = alertStore()
+  const { user } = userStore  ();
+  const [isLogged, setIsLogged] = useState(false);
+  
+  useEffect(() => {
+    if (user) {
+      setIsLogged(true);
+    }
+  }
+    , [user]);
+
   
   useEffect(() => {
     const getData = async () => {
@@ -92,27 +103,30 @@ const Page  = () => {
     getLocation()
   }, [])
   
+  if (!isLogged) return <NoAuth />;
+  
   return (
     <div className="border rounded-lg shadow-lg">
       <h2 className="text-center text-2xl font-bold p-5">INEGI</h2>
       <div className="grid grid-cols-1">
         {
-          position?.coords &&
-            <MapContainer
-              center={[
-                position?.coords.latitude,
-                position?.coords.longitude,
-              ]}
-              zoom={4}
-              scrollWheelZoom={true}
-              style={{ height: "100vh", width: "100%" }}
-            >
-              <TileLayer
-                attribution='&amp;copy <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <SelectDistrict position="topright" zoom={8} data={data} coords={position?.coords}/>
-            </MapContainer>
+          typeof window !== 'undefined' &&
+            position?.coords &&
+              <MapContainer
+                center={[
+                  position?.coords.latitude,
+                  position?.coords.longitude,
+                ]}
+                zoom={4}
+                scrollWheelZoom={true}
+                style={{ height: "100vh", width: "100%" }}
+              >
+                <TileLayer
+                  attribution='&amp;copy <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <SelectDistrict position="topright" zoom={8} data={data} coords={position?.coords}/>
+              </MapContainer>
         }
       </div>
     </div>

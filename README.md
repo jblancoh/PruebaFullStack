@@ -58,5 +58,18 @@ Se creo un servicio de base de datos en Render para la base de datos PostgreSQL.
 
 Leer los archivos README.md de cada carpeta para la instalación de cada parte del proyecto.
 
+## Repositorio
+
+[https://github.com/jblancoh/PruebaFullStack/](https://github.com/jblancoh/PruebaFullStack/)
+
+## Pagina desplegada
+
+[https://prueba-full-stack.vercel.app/](https://prueba-full-stack.vercel.app/login)
+[https://prueba-fullstack-nestjs.onrender.com](https://prueba-fullstack-nestjs.onrender.com)
+
+```
+usuario: jonathan@example.com
+password: 123123123
+```
 
 

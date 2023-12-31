@@ -34,20 +34,24 @@ const NavBar = () => {
       </div>
       <div className="navbar-center">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <details>
-              <summary>Charts</summary>
-              <ul className="p-2">
-                <li>
-                  <Link
-                    href="/trade/usa"
-                  >
-                    Retail Trade USA
-                  </Link>
-                </li>
-              </ul>
-            </details>
-          </li>
+          {
+            user && (
+              <li>
+                <details>
+                  <summary>Charts</summary>
+                  <ul className="p-2">
+                    <li>
+                      <Link
+                        href="/trade/usa"
+                      >
+                        Retail Trade USA
+                      </Link>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            )
+          }
          {
           user?.role === 'admin' &&
             <li>
@@ -60,13 +64,17 @@ const NavBar = () => {
               </details>
             </li>
           }
-          <li>
-            <Link
-              href="/inegi"
-            >
-              INEGI
-            </Link>
-          </li>
+          {
+            user && (
+              <li>
+                <Link
+                  href="/inegi"
+                >
+                  INEGI
+                </Link>
+              </li>
+            )
+          }
         </ul>
       </div>
       <div className="navbar-end">
