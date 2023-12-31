@@ -75,7 +75,17 @@ Este proyecto esta configurado para desplegarse en [Vercel](https://vercel.com/)
 - Navbar
 - Dashboard
 
+## Repositorio
 
+[https://github.com/jblancoh/PruebaFullStack/](https://github.com/jblancoh/PruebaFullStack/)
 
+## Pagina desplegada
 
+[https://prueba-full-stack.vercel.app/](https://prueba-full-stack.vercel.app/login)
+[https://prueba-fullstack-nestjs.onrender.com](https://prueba-fullstack-nestjs.onrender.com)
+
+```
+usuario: jonathan@example.com
+password: 123123123
+```
 
