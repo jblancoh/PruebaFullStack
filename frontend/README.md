@@ -58,6 +58,9 @@ Este proyecto esta configurado para desplegarse en [Vercel](https://vercel.com/)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Eslint](https://eslint.org/)
 - [Vercel](https://vercel.com/)
+- [DaisyUI](https://daisyui.com/)
+- [Apexcharts](https://apexcharts.com/)
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
 
 
 ## Paginas
