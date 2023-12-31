@@ -1,26 +1,11 @@
 import { NextResponse } from "next/server"
 import { cookies } from "next/headers";
 
-export async function GET(request) {
+export async function GET() {
   const cookieStore = cookies();
   const { value } = cookieStore.get('Token')
-  const { searchParams } = new URL(request.url)
-  const page = searchParams.get('page')
-  const limit = searchParams.get('limit')
-  const sort = searchParams.get('sort') || ''
-  const filter = searchParams.get('filter') || ''
-  const search = searchParams.get('search') || ''
-  
   try {
-    
-    const params = new URLSearchParams({
-      page,
-      limit,
-      sort,
-      filter,
-      search
-    })
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/api/v1/products?${params.toString()}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/api/v1/ine`, {
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -36,5 +21,4 @@ export async function GET(request) {
   } catch (error) {
     return NextResponse.json({ error: error }, { status: 500 })
   }
-  
 }

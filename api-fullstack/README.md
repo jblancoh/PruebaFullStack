@@ -47,4 +47,5 @@ Este proyecto esta configurado para desplegarse en [Render](https://render.com/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [Docker](https://www.docker.com/)
 - [Render](https://render.com/)
+- [TypeORM](https://typeorm.io/#/)
 

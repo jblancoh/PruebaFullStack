@@ -49,7 +49,7 @@ const Page = () => {
   return (
     <div className="border rounded-lg shadow-lg">
       <h2 className="text-center text-2xl font-bold p-5">Retail Trade USA</h2>
-      <h3 className="text-center text-xl font-bold p-5">Total Population by State</h3>
+      <h3 className="text-center text-xl font-bold p-5">Total employment by State</h3>
       <div className="grid grid-cols-1 p-10">
         <div className="grid grid-cols-3 mb-8">
           <div className="col-span-1 justify-center">
