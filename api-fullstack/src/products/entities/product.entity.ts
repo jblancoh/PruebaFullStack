@@ -3,77 +3,77 @@ import { Entity, Column, PrimaryColumn } from 'typeorm';
 @Entity()
 export class Product {
   @PrimaryColumn()
-  ProductID: number;
+  productID: number;
   
   @Column()
-  Name: string;
+  name: string;
   
   @Column()
-  ProductNumber: string;
+  productNumber: string;
   
   @Column()
-  MakeFlag: boolean;
+  makeFlag: boolean;
   
   @Column()
-  FinishedGoodsFlag: boolean;
+  finishedGoodsFlag: boolean;
   
   @Column()
-  Color: string;
+  color: string;
   
   @Column()
-  SafetyStockLevel: number;
+  safetyStockLevel: number;
   
   @Column()
-  ReorderPoint: number;
+  reorderPoint: number;
   
   @Column()
-  StandardCost: number;
+  standardCost: number;
   
   @Column()
-  ListPrice: number;
+  listPrice: number;
   
   @Column()
-  Size: string;
+  size: string;
   
   @Column()
-  SizeUnitMeasureCode: string;
+  sizeUnitMeasureCode: string;
   
   @Column()
-  WeightUnitMeasureCode: string;
+  weightUnitMeasureCode: string;
   
   @Column({ nullable: true })
-  Weight: number;
+  weight: number;
   
   @Column()
-  DaysToManufacture: number;
+  daysToManufacture: number;
   
   @Column()
-  ProductLine: string;
+  productLine: string;
   
   @Column()
-  Class: string;
+  class: string;
   
   @Column()
-  Style: string;
+  style: string;
   
   @Column({ nullable: true })
-  ProductSubcategoryID: number;
+  productSubcategoryID: number;
   
   @Column({ nullable: true })
-  ProductModelID: number;
+  productModelID: number;
   
   @Column({ nullable: true })
-  SellStartDate: Date;
+  sellStartDate: Date;
   
   @Column({ nullable: true})
-  SellEndDate: Date;
+  sellEndDate: Date;
   
   @Column({ nullable: true})
-  DiscontinuedDate: Date;
+  discontinuedDate: Date;
   
   @Column()
   rowguid: string;
   
   @Column()
-  ModifiedDate: Date;
+  modifiedDate: Date;
 }

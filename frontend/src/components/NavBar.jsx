@@ -1,27 +1,77 @@
 'use client'
 import { userStore } from "@/app/store/userStore"
+import { LogoutServcice } from "@/services/authServices"
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { useEffect, useState } from "react"
 
 const NavBar = () => {
   const { user } = userStore()
+  const [isLogged, setIsLogged] = useState(false)
+  const router = useRouter()
   const pathname = usePathname()
   const isLoginPage = pathname === "/login" ? true : false
   
-  const handleLogin = () => {
+  const handleLogout = async () => {
+    await LogoutServcice(router)
   }
   
   
+  
+  useEffect(() => {
+    if (user) {
+      setIsLogged(true)
+    }
+  }
+  , [user])
+  
   return (
-    <div className="navbar bg-base-100">
-      <div className="flex-1">
+    <div className="navbar border mb-4 rounded-lg shadow-lg">
+      <div className="navbar-start">
         <Link href="/home">
           <button className="btn btn-ghost text-xl">FullStack Dashboard</button>
         </Link>
       </div>
-      <div className="flex-none">
-        {
-          user && (
+      <div className="navbar-center">
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <details>
+              <summary>Charts</summary>
+              <ul className="p-2">
+                <li>
+                  <Link
+                    href="/trade/usa"
+                  >
+                    Retail Trade USA
+                  </Link>
+                </li>
+              </ul>
+            </details>
+          </li>
+         {
+          user?.role === 'admin' &&
+            <li>
+              <details>
+                <summary>Users</summary>
+                <ul className="p-2">
+                  <li><a>List</a></li>
+                  <li><a>Register</a></li>
+                </ul>
+              </details>
+            </li>
+          }
+          <li>
+            <Link
+              href="/inegi"
+            >
+              INEGI
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <div className="navbar-end">
+        {/* {
+          isLogged && (
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
                 <div className="indicator">
@@ -40,9 +90,9 @@ const NavBar = () => {
               </div>
             </div>
           )
-        }
+        } */}
         {
-          user ? (
+          isLogged ? (
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
@@ -51,13 +101,10 @@ const NavBar = () => {
               </div>
               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                 <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
+                  <button onClick={handleLogout}>
+                    <a>Logout</a>
+                  </button>
                 </li>
-                <li><a>Settings</a></li>
-                <li><a>Logout</a></li>
               </ul>
             </div>
           ) : !isLoginPage && (

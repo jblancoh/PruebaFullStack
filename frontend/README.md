@@ -1,8 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Este es un proyecto de [Next.js](https://nextjs.org/) creado con [`create-next-app`]("https://nextjs.org/docs/api-reference/create-next-app").
 
-## Getting Started
+## Inicio rapido
 
-First, run the development server:
+Primero, clona el repositorio:
+
+```bash
+git clone
+```
+
+Instala las dependencias:
+
+```bash
+yarn install
+# or
+npm install
+# or
+pnpm install
+# or
+bun install
+```
+
+Copia el archivo `env.example` a `.env.local` y configura las variables de entorno:
+
+```bash
+cp env.example .env.local
+```
+
+Ejecuta el servidor de desarrollo:
 
 ```bash
 npm run dev
@@ -14,23 +38,54 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) con tu navegador para ver el resultado.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Hay dos opciones para ejecutar el backend de la aplicacion:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Ejecutar el backend en la nube, para esto debes configurar las variables de entorno en el archivo `.env.local` con los datos de la api en la nube (https://prueba-fullstack-nestjs.onrender.com) 
 
-## Learn More
+2. Ejecutar el backend de forma local, el cual se encuentra en el mismo repositorio en la carpeta `api-fullstack`, leer el [README.md](../api-fullstack/README.md) para mas informacion.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Despliegue
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Este proyecto esta configurado para desplegarse en [Vercel](https://vercel.com/), se integra con el repositorio de github y se despliega automaticamente cada vez que se hace un push a la rama `main`.
 
-## Deploy on Vercel
+## Tecnologias
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js](https://nextjs.org/)
+- [React.js](https://reactjs.org/)
+- [Tailwindcss](https://tailwindcss.com/)
+- [Eslint](https://eslint.org/)
+- [Vercel](https://vercel.com/)
+- [DaisyUI](https://daisyui.com/)
+- [Apexcharts](https://apexcharts.com/)
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Paginas
+
+- Home
+- Charts
+- INEGI
+- Login
+
+## Componentes
+
+- Navbar
+- Dashboard
+
+## Repositorio
+
+[https://github.com/jblancoh/PruebaFullStack/](https://github.com/jblancoh/PruebaFullStack/)
+
+## Pagina desplegada
+
+[https://prueba-full-stack.vercel.app/](https://prueba-full-stack.vercel.app/login)
+[https://prueba-fullstack-nestjs.onrender.com](https://prueba-fullstack-nestjs.onrender.com)
+
+```
+usuario: jonathan@example.com
+password: 123123123
+```
+
