@@ -17,8 +17,6 @@ const DashboardProduct = () => {
   }
   , [user]);
   
-  
-  
   if (!isLogged) return <NoAuth />;
   return (
     <div className="grid grid-cols-3">

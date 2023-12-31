@@ -1,5 +1,7 @@
 'use client';
+import { userStore } from "@/app/store/userStore";
 import Chart from "@/components/Chart";
+import NoAuth from "@/components/NoAuth";
 import { useEffect, useState } from "react";
 
 const Page = () => {
@@ -9,7 +11,15 @@ const Page = () => {
   const [data, setData] = useState([])
   const [year, setYear] = useState('all')
   const [top, setTop] = useState('10')
+  const { user } = userStore();
+  const [isLogged, setIsLogged] = useState(false);
   
+  useEffect(() => {
+    if (user) {
+      setIsLogged(true);
+    }
+  }, [user]);
+    
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(`/api/trade/usa?${top ? `top=${top}` : ''}${year ? `&year=${year}` : ''}`)
@@ -45,6 +55,8 @@ const Page = () => {
       setSeries(data.series)
     }
   }, [data, type])
+  
+  if (!isLogged) return <NoAuth />;
   
   return (
     <div className="border rounded-lg shadow-lg">

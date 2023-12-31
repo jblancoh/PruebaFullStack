@@ -38,7 +38,6 @@ const useProducts = () => {
     };
 
     fetchProducts();
-    console.log("🚀 ~ file: useProducts.js:42 ~ useProducts ~ search:", search)
   }, [search]);
   
   return { products, links, meta, setMeta, setSearch };
